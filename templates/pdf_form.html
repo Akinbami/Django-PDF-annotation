@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}<title>Create</title>{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom-drag-and-drop.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			{% include 'sidebar.html' %}
+		</div>
+		<div class="col-sm-9">
+			{% include 'pdf_upload.html' %}
+		</div>
+	</div>
+</div>
+	
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{% static 'js/custom-drag-and-drop.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block style %}
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/floating-labels.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <form class="form-signin" method='POST' action="." enctype='multipart/form-data'>{% csrf_token %}
+        <div class="text-center mb-4">
+          <img class="mb-4" src="{% static 'img/PDF.ico' %}" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">PDF Annotation</h1>
+        </div>
+        <h4>Please login</h4>
+        <div class="form-label-group">
+          <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
+          {{ form.username }}
+          <label for="inputEmail">Username</label>
+        </div>
+
+        <div class="form-label-group">
+          <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
+          {{ form.password }}
+          <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">© 2017-2018</p>
+      </form>
+    
+      <div class="row">
+        <div class="col-sm-6 offset-2">
+          <div class="text-center">
+            <a class="d-block  mt-3" href="{% url 'accounts:register' %}">Need an account? Register an Account</a>
+            <a class="d-block " href="forgot-password.html">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% load staticfiles %}
+{% if users.count > 0 %}
+	{% for user in users %}
+		<div class="media text-muted pt-3">
+		  <img src="{% static 'img/generic-user.png' %}" alt="" class="mr-2 rounded" height="10%" width="10%">
+		  <div class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+		    <div class="d-flex justify-content-between align-items-center w-100">
+		      <strong class="text-gray-dark">{{ user.username }}</strong>
+		      <a href="{% url 'pdfs:contributor-toggle' pdf=pdf username=user.username %}" class="btn btn-primary">Share</a>
+		    </div>
+		    <span class="d-block">{{ user.email }}</span>
+		  </div>
+		</div>
+	{% endfor %}
+{% else %}
+	<li>No Result</li>
+{% endif %}
+<!-- <div class="media text-muted pt-3">
+  <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+  <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <strong class="text-gray-dark">Full Name</strong>
+      <a href="#">Follow</a>
+    </div>
+    <span class="d-block">@username</span>
+  </div>
+</div>
+<div class="media text-muted pt-3">
+  <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+  <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <strong class="text-gray-dark">Full Name</strong>
+      <a href="#">Follow</a>
+    </div>
+    <span class="d-block">@username</span>
+  </div>
+</div>
+<div class="media text-muted pt-3">
+  <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+  <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <strong class="text-gray-dark">Full Name</strong>
+      <a href="#">Follow</a>
+    </div>
+    <span class="d-block">@username</span>
+  </div>
+</div> -->
